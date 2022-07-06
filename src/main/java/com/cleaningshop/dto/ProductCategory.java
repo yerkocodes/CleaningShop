@@ -1,4 +1,7 @@
-package com.cleaningshop.model;
+package com.cleaningshop.dto;
+
+import com.cleaningshop.model.Category;
+import com.cleaningshop.model.Product;
 
 public class ProductCategory {
 	private Product product;
