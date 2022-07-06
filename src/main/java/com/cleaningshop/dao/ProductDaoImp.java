@@ -1,5 +1,6 @@
 package com.cleaningshop.dao;
 
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +69,32 @@ public class ProductDaoImp extends ConnectionManager implements IProductDao {
 
 	@Override
 	public Product addProduct(Product product) {
-		return null;
+//		INSERT INTO product (name_product, price_product, description_product, id_category) VALUES ('Omo', 3500, 'Quita manchas', (SELECT id_category FROM category WHERE name_category = 'Detergente líquido'));
+		
+		String insert = "INSERT INTO product (name_product, price_product, description_product, id_category) ";
+		String values = "VALUES (?, ?, ?, ?)";
+
+		try {
+
+			pstm = conn.prepareStatement(insert + values);
+			pstm.setString(1, product.getName_product());
+			pstm.setInt(2, product.getPrice_product());
+			pstm.setString(3, product.getDescription_product());
+			pstm.setInt(4, product.getId_category());
+			
+			if (pstm.executeUpdate() == 1) {
+				PreparedStatement pstm2 = conn.prepareStatement("SELECT MAX(id) FROM product");
+				rs = pstm2.executeQuery();
+				if (rs.next()) {
+					product.setId_product(rs.getInt(1));
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return product;
 	}
 
 	@Override
