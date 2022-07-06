@@ -83,7 +83,7 @@ public class ProductDaoImp extends ConnectionManager implements IProductDao {
 			pstm.setInt(4, product.getId_category());
 			
 			if (pstm.executeUpdate() == 1) {
-				PreparedStatement pstm2 = conn.prepareStatement("SELECT MAX(id) FROM product");
+				PreparedStatement pstm2 = conn.prepareStatement("SELECT MAX(id_product) FROM product");
 				rs = pstm2.executeQuery();
 				if (rs.next()) {
 					product.setId_product(rs.getInt(1));
@@ -123,7 +123,19 @@ public class ProductDaoImp extends ConnectionManager implements IProductDao {
 
 	@Override
 	public int findLastId() {
-		return 0;
+		int result = 0;
+		try {
+			pstm = conn.prepareStatement("SELECT MAX(id_product) FROM product");
+			rs = pstm.executeQuery();
+
+			if (rs.next()) {
+				result = rs.getInt(1);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }
