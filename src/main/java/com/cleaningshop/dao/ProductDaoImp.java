@@ -15,7 +15,28 @@ public class ProductDaoImp extends ConnectionManager implements IProductDao {
 
 	@Override
 	public Product findById(int id) {
-		return null;
+		
+		Product product = new Product();
+		
+		try {
+			pstm = conn.prepareStatement("SELECT * FROM product WHERE product.id_product = ?");
+			pstm.setInt(1, id);
+			rs = pstm.executeQuery();
+			
+			if (rs.next()) {
+				product.setId_product(rs.getInt("id_product"));
+				product.setName_product(rs.getString("name_product"));
+				product.setPrice_product(rs.getInt("price_product"));
+				product.setDescription_product(rs.getString("description_product"));
+				product.setId_category(rs.getInt("id_category"));
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return product;
 	}
 
 	@Override
