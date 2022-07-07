@@ -39,7 +39,7 @@ public class CategoryDaoImp extends ConnectionManager implements ICategoryDao {
 		List<Category> categoriesList = new ArrayList<>();
 
 		try {
-			pstm = conn.prepareStatement("SELECT * FROM product");
+			pstm = conn.prepareStatement("SELECT * FROM category");
 			rs = pstm.executeQuery();
 
 			while (rs.next()) {
