@@ -99,6 +99,22 @@ public class ProductDaoImp extends ConnectionManager implements IProductDao {
 
 	@Override
 	public Product updateProduct(Product product) {
+		//UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
+		//UPDATE product SET name_product = 'Quix', price_product = 1000, description_product = 'El mejor', id_category = 1 WHERE id_product = 2;
+		try {
+			pstm = conn.prepareStatement("UPDATE product SET name_product = ?, price_product = ?, description_product = ?, id_category = ? WHERE id_product = ?");
+			pstm.setString(1, product.getName_product());
+			pstm.setInt(2, product.getPrice_product());
+			pstm.setString(3, product.getDescription_product());
+			pstm.setInt(4, product.getId_category());
+			pstm.setInt(5, product.getId_product());
+			
+			if (pstm.executeUpdate() == 1) {
+				rs = pstm.executeQuery();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
