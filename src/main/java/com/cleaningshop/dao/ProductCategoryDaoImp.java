@@ -44,5 +44,39 @@ public class ProductCategoryDaoImp extends ConnectionManager implements IProduct
 
 		return productsCategoriesList;
 	}
+	
+	
+	// ----------------------------------------
+//	ProductoCategoriaDaoImp extends AdministradorConexion implements ProductoCategoriaDao {
+//	    
+//	    public ProductoCategoriaDaoImp() {
+//	        conn = generaPoolConexion();
+//	    }
+//	    
+//	    @Override //SELECT * FROM PRODUCTO PRO INNER JOIN CATEGORIA CAT ON CAT.ID_CATEGORIA = PRO.ID_CATEGORIA
+//	    public List<ProductoCategoria> findAll() {
+//	        
+//	        ProductoDao productoDao = new ProductoDaoImp();
+//	        CategoriaDao categoriaDao = new CategoriaDaoImp();
+//	        
+//	        List<ProductoCategoria> listaProductoCategoria = new ArrayList<ProductoCategoria>();
+//	        
+//	        for (Producto productoTemp : productoDao.findAll()) {
+//	            
+//	            ProductoCategoria productoCategoria = new ProductoCategoria();//objeto ProductoCagoria que se agregara a la lista
+//	            
+//	            //buscando la categoria del objeto temporal encontrado mediante el metodo findAll() que retorna una lista de Producto
+//	            Categoria categoria = categoriaDao.findById(productoTemp.getIdCategoria()); //mediante el id del productoTemp, se busca la categoria
+//	            
+//	            productoCategoria.setProducto(productoTemp);//se setea el producto en productoCategoria
+//	            productoCategoria.setCategoria(categoria);
+//	            
+//	            listaProductoCategoria.add(productoCategoria);
+//	        }
+//	        
+//	        return listaProductoCategoria;
+//	    }
+//	}
+	// ----------------------------------------
 
 }
