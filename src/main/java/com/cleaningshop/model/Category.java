@@ -27,5 +27,10 @@ public class Category {
 	public void setName_category(String name_category) {
 		this.name_category = name_category;
 	}
+
+	@Override
+	public String toString() {
+		return "Category [id_category=" + id_category + ", name_category=" + name_category + "]";
+	}
 	
 }
