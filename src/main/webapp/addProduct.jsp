@@ -15,7 +15,7 @@
 	</div>
 
 	<!-- FORM -->
-	<form class="container" action="/addProduct" method="post">
+	<form class="container" action="addProduct" method="post">
 		<div class="mb-3">
 			<label for="nameProduct" class="form-label">Name</label> 
 			<input type="text" class="form-control" id="nameProduct" name="nameProduct" required>
@@ -32,14 +32,10 @@
 		</div>
 
 		<div class="mb-3">
-			<select class="form-select" aria-label="Default select example">
-				<option selected disabled>default option</option>
+			<select class="form-select" name="categoryId" aria-label="Default select example" required>
+				<option selected disabled>Select an option</option>
 				<c:forEach items="${categories}" var="temp">
-					<%-- 					
-					<option value="temp.getId_product()">${temp.getName_product()}</option>
- --%>
-					<option value="">${temp.getName_category()}</option>
-					<p>${temp}</p>
+					<option value="${temp.getId_category()}">${temp.getName_category()}</option>
 				</c:forEach>
 			</select>
 		</div>
