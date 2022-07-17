@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cleaningshop.model.Category;
+import com.cleaningshop.model.Product;
 import com.cleaningshop.serviceFacade.Facade;
 
 /**
@@ -29,6 +30,27 @@ public class AddProduct extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Facade facade = new Facade();
+
+		try {
+			Product productToAdd = new Product(
+				0,
+				request.getParameter("nameProduct"),
+				Integer.parseInt(request.getParameter("priceProduct")),
+				request.getParameter("descriptionProduct"),
+				Integer.parseInt(request.getParameter("categoryId"))	
+			);
+			
+			Product productAdded = facade.add(productToAdd);
+			
+			if (productAdded.getId_product() != 0) {
+				request.setAttribute("productAdded", productAdded);
+				request.getRequestDispatcher("productAddedOK.jsp").forward(request, response);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
