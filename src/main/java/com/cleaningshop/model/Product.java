@@ -59,6 +59,14 @@ public class Product {
 	public void setId_category(int id_category) {
 		this.id_category = id_category;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [id_product=" + id_product + ", name_product=" + name_product + ", price_product="
+				+ price_product + ", description_product=" + description_product + ", id_category=" + id_category + "]";
+	}
+	
+	
 	
 	
 }
