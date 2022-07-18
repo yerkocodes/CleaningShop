@@ -1,33 +1,21 @@
 package com.cleaningshop.controllerServlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cleaningshop.dto.ProductCategory;
-import com.cleaningshop.serviceFacade.Facade;
-
 /**
- * Servlet implementation class ProductsList
+ * Servlet implementation class Home
  */
-@WebServlet("/productsList")
-public class ProductsList extends HttpServlet {
+@WebServlet("/home")
+public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Facade facade = new Facade();
-		
-		List<ProductCategory> productCategoryList = facade.findAllProductCategoryDao();
-
-		request.setAttribute("productCategoryList", productCategoryList);
-		request.getRequestDispatcher("productList.jsp").forward(request, response);
-
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 //	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
