@@ -19,7 +19,7 @@ public class Facade {
 	private IProductCategoryDao iProductCategoryDao = new ProductCategoryDaoImp();
 	
 	// ProductDao
-	public Product findById(int id) {
+	public Product findProductById(int id) {
 		return iProductDao.findById(id);
 	}
 	
@@ -44,7 +44,7 @@ public class Facade {
 	}
 	
 	// CategoryDao
-	public Category findByid(int id) {
+	public Category findCategoryByid(int id) {
 		return iCategoryDao.findById(id);
 	}
 
