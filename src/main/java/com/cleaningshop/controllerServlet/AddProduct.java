@@ -45,6 +45,7 @@ public class AddProduct extends HttpServlet {
 			
 			if (productAdded.getId_product() != 0) {
 				request.setAttribute("productAdded", productAdded);
+				request.setAttribute("modifier", "added");
 				request.getRequestDispatcher("productAddedOK.jsp").forward(request, response);
 			}
 

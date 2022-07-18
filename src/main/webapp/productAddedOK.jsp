@@ -10,9 +10,9 @@
 </head>
 <body>
 	<jsp:include page="layouts/navbar.html"></jsp:include>
-	<h1>Product added successfully</h1>
+	<h1>Product <c:out value="${modifier}"></c:out> successfully</h1>
 	<button>
-		<a href="addProduct">Add other product</a>
+		<a href="addProduct">Add new product</a>
 	</button>
 	<button>
 		<a href="productsList">List of products</a>

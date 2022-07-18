@@ -51,6 +51,8 @@ public class EditProduct extends HttpServlet {
 					Integer.parseInt(request.getParameter("categoryId")) // id Category
 				));
 			}
+			request.setAttribute("modifier", "updated");
+			request.getRequestDispatcher("productAddedOK.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
