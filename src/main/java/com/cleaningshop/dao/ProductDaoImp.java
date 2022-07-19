@@ -121,7 +121,7 @@ public class ProductDaoImp extends ConnectionManager implements IProductDao {
 //		DELETE FROM product WHERE id_producto = ?;
 		boolean result = false;
 		try {
-			pstm = conn.prepareStatement("DELETE FROM product WHERE id_producto = ?");
+			pstm = conn.prepareStatement("DELETE FROM product WHERE id_product = ?");
 			pstm.setInt(1, id);
 
 			if (pstm.executeUpdate() == 1) {

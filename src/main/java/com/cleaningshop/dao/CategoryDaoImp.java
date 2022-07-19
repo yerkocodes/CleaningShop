@@ -17,7 +17,7 @@ public class CategoryDaoImp extends ConnectionManager implements ICategoryDao {
 		Category category = new Category();
 
 		try {
-			pstm = conn.prepareStatement("SELECT * FROM category WHERE product.id_product = ?");
+			pstm = conn.prepareStatement("SELECT * FROM category WHERE category.id_category= ?");
 			pstm.setInt(1, id);
 			rs = pstm.executeQuery();
 
