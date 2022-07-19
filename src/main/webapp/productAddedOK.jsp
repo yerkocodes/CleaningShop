@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <jsp:include page="layouts/headResources.html"></jsp:include>
+<META http-equiv="refresh" content="5;URL=productsList">
 </head>
 <body>
 	<jsp:include page="layouts/navbar.html"></jsp:include>
